@@ -1,4 +1,3 @@
-# Sammy
 import cv2
 
 # Open the default camera
