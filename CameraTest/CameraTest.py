@@ -1,5 +1,6 @@
 import cv2
 import mediapipe as mp
+import time
 
 # Initalize MediaPipe Hands and drawing utilities
 mp_hands = mp.solutions.hands
@@ -11,6 +12,9 @@ cam = cv2.VideoCapture(0)
 if not cam.isOpened():
     print("Camera inaccessible.")
     exit()
+
+# Variables for FPS Calc
+prev_time = 0
 
 # Setting up the MediaPipe Hands object
 with mp_hands.Hands(
@@ -57,6 +61,23 @@ with mp_hands.Hands(
                     )
                 )
         
+        # FPS Calculation
+        curr_time = time.time()
+        fps = 1 / (curr_time - prev_time) if prev_time != 0 else 0
+        prev_time = curr_time
+
+        # Display FPS
+        cv2.putText(
+            frame_bgr,                  # Frame to display FPS on
+            f"FPS: {int(fps)}",         # Text to display
+            (10, 30),                   # Position
+            cv2.FONT_HERSHEY_COMPLEX,   # Font
+            1,                          # Font scale
+            (0, 255, 0),                # Color
+            2,                          # Thickness
+            cv2.LINE_AA                 # Anti-aliased lines (??)
+        )
+
         cv2.imshow("Hand Detection Test", frame_bgr)    # The BGR format is used for displaying the frame
 
         # Program exit (Press 'q')
