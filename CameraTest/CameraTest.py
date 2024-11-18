@@ -78,12 +78,12 @@ with mp_hands.Hands(
             cv2.LINE_AA                 # Anti-aliased lines (??)
         )
 
-        cv2.imshow("Hand Detection Test", frame_bgr)    # The BGR format is used for displaying the frame
+        cv2.imshow("Hand Detection Test (Press any key to exit)", frame_bgr)    # Displaying the frame
 
-        # Program exit (Press 'q')
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        # Program exit (press any key)
+        if cv2.waitKey(1) != -1:
             break
 
-# Release webcame and close window
+# Release webcam and close window
 cam.release()
 cv2.destroyAllWindows()

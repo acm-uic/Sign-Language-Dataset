@@ -14,9 +14,12 @@ About:
 
 To Do:
     1. Test different methods of camera usage and make a program that will input feed and recognize hands.
-        - Opens camera
-        - Recognizes hand
-        - Creates wireframe from hand (photos for now, videos and live feed later)
+        - Opens camera :white_check_mark:
+        - Recognizes hand :white_check_mark:
+        - Creates wireframe from hand
+            - Live feed :white_check_mark:
+            - Videos
+            - Photos (IMPORTANT FOR AI TRAINING) :white_check_mark:
         - Wrap into an actual application (if time allowed)
 
     2. Convert dataset
