@@ -1,6 +1,10 @@
 import mediapipe as mp
 import cv2
+from tkinter import Tk
 from tkinter.filedialog import askopenfilename
+import numpy as np
+
+Tk().withdraw() # Hides root window
 
 # Get file to read from user
 filename = askopenfilename()
@@ -28,12 +32,34 @@ with mp_hands.Hands(
 
     imgRGB = cv2.cvtColor(imgBGR, cv2.COLOR_BGR2RGB)    # Convert to RGB
     res = hands.process(imgRGB)                         # Process image
+    wireImage = np.zeros_like(imgBGR)                   # Black screen
 
     # Draw hand landmarks on image
     if res.multi_hand_landmarks:                            # Check if hand landmarks have been found
             for hand_landmarks in res.multi_hand_landmarks: # Iterate over each hand landmark found
-                mp_drawing.draw_landmarks(                  # Draws landmarks and connections
+
+                # Draws landmarks and connections on photo
+                mp_drawing.draw_landmarks(                  
                     imgBGR, hand_landmarks, 
+                    mp_hands.HAND_CONNECTIONS,
+
+                    # Draws landmarks
+                    mp_drawing.DrawingSpec(                 
+                        color = (0, 255, 0), 
+                        thickness = 2, 
+                        circle_radius = 2
+                    ), 
+
+                    # Draws connections between landmarks
+                    mp_drawing.DrawingSpec(                 
+                        color = (255, 0, 0), 
+                        thickness = 2
+                    )
+                )
+
+                # Draws landmarks and connections on black screen
+                mp_drawing.draw_landmarks(                  
+                    wireImage, hand_landmarks, 
                     mp_hands.HAND_CONNECTIONS,
 
                     # Draws landmarks
@@ -51,6 +77,7 @@ with mp_hands.Hands(
                 )
     
     cv2.imshow("Hand Detection Test (Press any key to exit)", imgBGR)   # Displaying the frame
+    cv2.imshow("Wireframe Map (Press any key to exit)", wireImage)   # Displaying the black screen
 
     # Program exit (press any key)
     while True:
