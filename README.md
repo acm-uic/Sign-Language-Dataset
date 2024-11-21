@@ -3,7 +3,7 @@ Members:\
     Aaron Exline\
     Sammy Patel\
     Tomisin Fijabi\
-    Manasavi Sharma
+    Manasvi Sharma
 
 About:\
     The project is designed to create a program that will recieve video, live feed, or images of a user employing American Sign Language (ASL) and translates them into various letters and numbers.
@@ -12,12 +12,15 @@ About:\
 
     The process in mind is to take images, convert them to wireframe maps, feed the maps into an AI, and train an algorithm that will recognize ASL.
 
-To Do:\
-    1. Test different methods of camera usage and make a program that will input feed and recognize hands.\
-        - Opens camera\
-        - Recognizes hand\
-        - Creates wireframe from hand (photos for now, videos and live feed later)\
-        - Wrap into an actual application (if time allowed)
+To Do:
+    1. Test different methods of camera usage and make a program that will input feed and recognize hands.\
+        - Opens camera :white_check_mark:\
+        - Recognizes hand :white_check_mark:\
+        - Creates wireframe from hand\
+            - Live feed :white_check_mark:\
+            - Videos\
+            - Photos (IMPORTANT FOR AI TRAINING) :white_check_mark:\
+        - Wrap into an actual application (if time allowed)
 
     2. Convert dataset\
         - Access dataset through API\
