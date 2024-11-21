@@ -17,6 +17,10 @@ if not vidCam.isOpened():
 # Variables for FPS Calc
 prevTime = 0
 
+#Variable for Picture Counter
+
+counter=0
+
 # Setting up the MediaPipe Hands object
 with mp_hands.Hands(
         model_complexity = 1, 
@@ -90,6 +94,11 @@ with mp_hands.Hands(
         framesPerSecond = 1 / (currTime - prevTime) if prevTime != 0 else 0
         prevTime = currTime
 
+        # Picture Counter
+        counter=int(currTime%3)+1
+        
+        
+
         # Display FPS
         cv2.putText(
             frameBGR,                       # Frame to display FPS on
@@ -98,6 +107,17 @@ with mp_hands.Hands(
             cv2.FONT_HERSHEY_COMPLEX,       # Font
             1,                              # Font scale
             (0, 255, 0),                    # Color
+            2,                              # Thickness
+            cv2.LINE_AA                     # Anti-aliased lines (??)
+        )
+        # Display Time
+        cv2.putText(
+            frameBGR,                       # Frame to display FPS on
+            f"Time 1-3: {int(counter)}", # Text to display
+            (380, 30),                       # Position
+            cv2.FONT_HERSHEY_COMPLEX,       # Font
+            1,                              # Font scale
+            (0, 0, 50),                    # Color
             2,                              # Thickness
             cv2.LINE_AA                     # Anti-aliased lines (??)
         )
