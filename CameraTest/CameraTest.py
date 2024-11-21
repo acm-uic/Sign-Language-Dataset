@@ -43,7 +43,7 @@ with mp_hands.Hands(
         frameBGR = cv2.flip(frameBGR, 1)    # Flips frame
         frameRGB = cv2.cvtColor(frameBGR, cv2.COLOR_BGR2RGB)
 
-        res = hands.process(frameRGB)   # The RGB format is used for processing
+        res = hands.process(frameRGB)   # The RGB format is used for processing (most important tot he train the dataset)
 
         wireImage = np.zeros_like(frameBGR) # Black screen to show just wireframe
 
