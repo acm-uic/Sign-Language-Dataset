@@ -3,7 +3,7 @@ Members:\
     Aaron Exline\
     Sammy Patel\
     Tomisin Fijabi\
-    Manasavi Sharma
+    Manasvi Sharma
 
 About:\
     The project is designed to create a program that will recieve video, live feed, or images of a user employing American Sign Language (ASL) and translates them into various letters and numbers.
